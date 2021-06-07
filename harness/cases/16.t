@@ -18,8 +18,8 @@
 #define SYS_eventfd 318
 #elif defined(__alpha__)
 #define SYS_eventfd 478
-#elif defined(__aarch64__) || defined(__riscv)
-/* arm64 and riscv do not implement eventfd, only eventfd2 */
+#elif defined(__aarch64__) || defined(__loongarch__) || defined(__riscv)
+/* these recent architectures do not implement eventfd, only eventfd2 */
 #define USE_EVENTFD2
 #ifndef SYS_eventfd2
 #define SYS_eventfd2 19
