@@ -53,7 +53,8 @@ typedef enum io_iocb_cmd {
 /* little endian, 32 bits */
 #if defined(__i386__) || (defined(__arm__) && !defined(__ARMEB__)) || \
     defined(__sh__) || defined(__bfin__) || defined(__MIPSEL__) || \
-    defined(__cris__) || (defined(__riscv) && __riscv_xlen == 32) || \
+    defined(__cris__) || defined(__loongarch32) || \
+    (defined(__riscv) && __riscv_xlen == 32) || \
     (defined(__GNUC__) && defined(__BYTE_ORDER__) && \
          __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__ && __SIZEOF_LONG__ == 4)
 #define PADDED(x, y)	x; unsigned y
@@ -63,6 +64,7 @@ typedef enum io_iocb_cmd {
 /* little endian, 64 bits */
 #elif defined(__ia64__) || defined(__x86_64__) || defined(__alpha__) || \
       (defined(__aarch64__) && defined(__AARCH64EL__)) || \
+      defined(__loongarch64) || \
       (defined(__riscv) && __riscv_xlen == 64) || \
       (defined(__GNUC__) && defined(__BYTE_ORDER__) && \
           __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__ && __SIZEOF_LONG__ == 8)
